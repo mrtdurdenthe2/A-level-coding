@@ -1,0 +1,9 @@
+
+
+fName = input("What is your name?\n")
+
+print("Hello", str(fName) + ",", "please enter your identification number.\n")
+IDnumber = input()
+
+print("Kindly verify your identification number:", IDnumber, "Type Yes if it's correct. Otherwise, type No.")
+verification = input()

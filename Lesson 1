@@ -1,0 +1,23 @@
+def interview():
+    print("What is your first name?")
+    firstname = input()
+    print("Hello", firstname)
+    print("What is your surname?")
+    surname = input()
+    print ("What is your age?")
+    age = input()
+    print("Hello,", firstname, ",you are aged", age)
+    print("Where do you live")
+    residence = input()
+    print("Hello,", firstname, surname, ",you are aged", age, "and you live in", residence)
+
+    if "16" < age:
+        print("You are an adult!")
+
+print("asdasd")
+
+import time
+time.sleep(5)
+
+interview()
+

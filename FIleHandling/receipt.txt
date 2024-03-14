@@ -1,0 +1,5 @@
+83012,Organic citrus,6.80,2
+62341,Organic grapefruit,4.70,3
+98341,Organic red onions,1.65,5
+54598,Organic pink garlic bulb,3.60,2
+12385,Organic turmeric root,10.80,3

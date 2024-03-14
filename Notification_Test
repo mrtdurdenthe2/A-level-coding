@@ -1,0 +1,38 @@
+from win10toast import ToastNotifier
+from datetime import datetime, timedelta
+import time
+
+import schedule
+
+
+
+TimeBlocks = ["05:00", "06:30", "08:00", "09:30", "11:00", "12:30", "14:00", "15:30", "17:00"]
+Last_Time =  TimeBlocks[-1]
+print(Last_Time)
+now = datetime.now()
+notif = ToastNotifier()
+
+def send_notification():
+    notif.show_toast("IPDA","New 90min Quarter Started", duration= 20)
+    print("Sending notification...")
+
+# Schedule notifications
+for time_block in TimeBlocks:
+    schedule.every().day.at(time_block).do(send_notification)
+
+# Run the scheduler
+while True:
+
+    if now.strftime("%H:%M") <= Last_Time:
+        while True:
+            schedule.run_pending()
+            time.sleep(5) 
+        
+    else:
+        print("Nothing left")
+        break
+
+
+
+
+    

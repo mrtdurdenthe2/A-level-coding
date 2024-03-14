@@ -1,0 +1,49 @@
+from tkinter import *
+import string
+import random
+from tkinter import scrolledtext
+#### Generating the Key
+
+starters = ('1', '3', 'bc1')
+
+characters = string.ascii_letters + string.digits
+
+def GenerateKey():
+    KeyLenght = random.randrange(26, 35) # generates the random length
+    StarterChoice = random.choice(starters)
+    RandomLegnth = KeyLenght - len(StarterChoice)
+    random_string = ''.join(random.choice(characters) for _ in range(RandomLegnth))
+    FinalKey = StarterChoice + random_string
+
+    KeyText.insert(END, FinalKey + ' ')
+
+def Starter():
+    for _ in range(5):
+        GenerateKey()
+
+## UI
+
+UI = Tk()
+UI.geometry("400x600")
+UI.config(background="Grey")
+UI.title("Address generator")
+
+popupwidth = 700
+popupheight = 600
+screenwidth = UI.winfo_screenwidth()
+screenheight = UI.winfo_screenheight()
+
+center_x = int(screenwidth/2 - popupwidth / 2)
+center_y = int(screenheight/2 - popupheight / 2)
+
+UI.geometry(f'{popupwidth}x{popupheight}+{center_x}+{center_y}') # defining popup width and centering the location
+
+KeyText = scrolledtext.ScrolledText(UI, height=30)
+KeyText.pack()
+
+generate_button = Button(UI, text="Generate Keys", command=Starter)
+generate_button.pack()
+
+UI.mainloop()
+
+
